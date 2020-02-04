@@ -1,0 +1,10 @@
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\bin\Debug\Minesweeper.exe.config
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\bin\Debug\Minesweeper.exe
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\bin\Debug\Minesweeper.pdb
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.Form1.resources
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.cache
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.exe
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.pdb
