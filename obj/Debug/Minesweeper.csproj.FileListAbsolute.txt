@@ -8,3 +8,13 @@ C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.cspro
 C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
 C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.exe
 C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.pdb
+U:\YEAR2\AC22005\Project1\bin\Debug\Minesweeper.exe.config
+U:\YEAR2\AC22005\Project1\bin\Debug\Minesweeper.exe
+U:\YEAR2\AC22005\Project1\bin\Debug\Minesweeper.pdb
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.Form1.resources
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.Properties.Resources.resources
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csproj.GenerateResource.cache
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.exe
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.pdb
