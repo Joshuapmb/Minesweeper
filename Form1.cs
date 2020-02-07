@@ -31,7 +31,7 @@ namespace Minesweeper
         }
         void btnEvent_Click(object sender, EventArgs e)
         {
-            //if it's a bomb
+               //if it's a bomb
             if ()
             {
                 //explode
@@ -45,7 +45,7 @@ namespace Minesweeper
 
 
                    
-                    if (x - 1 < 0 && y > 15)
+                    if (x - 1 => 0 && y+1 <= 15)
                     {
                         //if there's a bomb bottom left
                         if (btn[x - 1, y + 1] = bombBtn)
@@ -54,7 +54,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (x >= 0 && y + 1 <= 15)
+                    if (y + 1 <= 15)
                     {
                         //if there's a bomb below
                         if (btn[x, y + 1] = bombBtn)
@@ -63,7 +63,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (btn[x + 1] >= 0 && btn[y + 1] <= 16)
+                    if (x+1 >= 0 && y + 1 <= 15)
                     {
                         //if there's a bomb bottom right
                         if (btn[x + 1, y + 1] = bombBtn)
@@ -72,7 +72,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (btn[x - 1] >= 0 && btn[y] <= 16)
+                    if (x-1 >= 0 && y <= 15)
                     {
                         //if there's a bomb left
                         if (btn[x - 1, y] = bombBtn)
@@ -81,7 +81,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (btn[x + 1] >= 0 && btn[y] <= 16)
+                    if (x+1 >= 0 && y <= 15)
                     {
                         //if there's a bomb right
                         if (btn[x + 1, y] = bombBtn)
@@ -90,7 +90,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (btn[x - 1] >= 0 && btn[y - 1] <= 16)
+                    if (x-1 >= 0 && y - 1 <= 15)
                     {
                         //if there's a bomb top left
                         if (btn[x - 1, y - 1] = bombBtn)
@@ -99,7 +99,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (btn[x] >= 0 && btn[y + 1] <= 16)
+                    if (x >= 0 && y - 1 <= 15)
                     {
                         //if there's a bomb above
                         if (btn[x, y - 1] = bombBtn)
@@ -108,7 +108,7 @@ namespace Minesweeper
                         }
                     }
 
-                    if (btn[x] >= 0 && btn[y + 1] <= 16)
+                    if (x+1 >= 0 && y - 1 <= 15)
                     {
                         //if there's a bomb bottom right
                         if (btn[x + 1, y - 1] = bombBtn)
