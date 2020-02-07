@@ -1,0 +1,9 @@
+C:\Users\callu\source\repos\WhackAMoleExample\bin\Debug\WhackAMoleExample.exe.config
+C:\Users\callu\source\repos\WhackAMoleExample\bin\Debug\WhackAMoleExample.exe
+C:\Users\callu\source\repos\WhackAMoleExample\bin\Debug\WhackAMoleExample.pdb
+C:\Users\callu\source\repos\WhackAMoleExample\obj\Debug\WhackAMoleExample.csprojAssemblyReference.cache
+C:\Users\callu\source\repos\WhackAMoleExample\obj\Debug\WhackAMoleExample.Form1.resources
+C:\Users\callu\source\repos\WhackAMoleExample\obj\Debug\WhackAMoleExample.Properties.Resources.resources
+C:\Users\callu\source\repos\WhackAMoleExample\obj\Debug\WhackAMoleExample.csproj.GenerateResource.cache
+C:\Users\callu\source\repos\WhackAMoleExample\obj\Debug\WhackAMoleExample.exe
+C:\Users\callu\source\repos\WhackAMoleExample\obj\Debug\WhackAMoleExample.pdb
