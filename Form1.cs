@@ -16,8 +16,9 @@ namespace Minesweeper
         Button[,] btn = new Button[16, 16]; // Create 2D array of buttons
         bool[,] bombArray = new bool[16, 16]; // Create 2D boolean bomb array
 
+       
         public Form1()
-        {
+        {        
             InitializeComponent();
             for (int x = 0; x < btn.GetLength(0); x++) // Loop for x
             {
@@ -39,9 +40,10 @@ namespace Minesweeper
                 int ranX = r.Next(16);
                 int ranY = r.Next(16);
 
-                if (btn[ranX, ranY].BackColor != Color.Red)
+                if (!bombArray[ranX, ranY])
                 {
                     btn[ranX, ranY].BackColor = Color.Red;
+                    bombArray[ranX, ranY] = true;
                     bombs--;
                 }
             }

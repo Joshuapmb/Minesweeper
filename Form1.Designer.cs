@@ -58,7 +58,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // difficultyOptionsToolStripMenuItem
@@ -68,7 +68,7 @@
             this.mediumToolStripMenuItem,
             this.hardToolStripMenuItem});
             this.difficultyOptionsToolStripMenuItem.Name = "difficultyOptionsToolStripMenuItem";
-            this.difficultyOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.difficultyOptionsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.difficultyOptionsToolStripMenuItem.Text = "Difficulty Options";
             // 
             // easyToolStripMenuItem
@@ -92,20 +92,20 @@
             // resartToolStripMenuItem
             // 
             this.resartToolStripMenuItem.Name = "resartToolStripMenuItem";
-            this.resartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resartToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.resartToolStripMenuItem.Text = "Restart";
             // 
             // highscoresToolStripMenuItem
             // 
             this.highscoresToolStripMenuItem.Name = "highscoresToolStripMenuItem";
-            this.highscoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.highscoresToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.highscoresToolStripMenuItem.Text = "High Scores";
             this.highscoresToolStripMenuItem.Click += new System.EventHandler(this.HighscoresToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItem1_Click);
             // 
