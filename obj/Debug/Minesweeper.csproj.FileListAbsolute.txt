@@ -8,3 +8,9 @@ C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.cspro
 C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
 C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.exe
 C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.pdb
+C:\Users\callu\source\repos\Minesweeper\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+C:\Users\callu\source\repos\Minesweeper\obj\Debug\WhackAMoleExample.Form1.resources
+C:\Users\callu\source\repos\Minesweeper\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\Users\callu\source\repos\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.cache
+C:\Users\callu\source\repos\Minesweeper\obj\Debug\Minesweeper.exe
+C:\Users\callu\source\repos\Minesweeper\obj\Debug\Minesweeper.pdb
