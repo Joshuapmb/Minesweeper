@@ -14,7 +14,8 @@ namespace Minesweeper
     {
         Random r = new Random();
         Button[,] btn = new Button[16, 16]; // Create 2D array of buttons
-        bool[,] bombArray = new bool[16, 16]; // Create 2D boolean bomb array
+        bool[,] bombArray = new bool[16, 16];
+        List<PanelStates> Panel;
         Label lblTurnTime = new Label();
         int seconds = 10;
 
@@ -29,13 +30,16 @@ namespace Minesweeper
         {        
 
             InitializeComponent();
+            Panel = new List<PanelStates>();
             lblTurnTime.Location = new System.Drawing.Point(400, 7);
             lblTurnTime.Text = "10";
-
+            int id = 0;
             for (int x = 0; x < btn.GetLength(0); x++) // Loop for x
             {
                 for (int y = 0; y < btn.GetLength(1); y++) // Loop for y
                 {
+                    Panel.Add(new PanelStates(id,x,y));
+                    id++;
                     btn[x, y] = new Button();
                     btn[x, y].SetBounds(30 * x, (30 * y) + 30, 30, 30);
                     btn[x, y].BackColor = Color.White;
@@ -48,15 +52,17 @@ namespace Minesweeper
               
             }
             int bombs = 40;
-            while (bombs>0)
+            while (bombs > 0)
             {
                 int ranX = r.Next(16);
                 int ranY = r.Next(16);
 
-                if (!bombArray[ranX, ranY])
+                if (!Panel[((ranY * 16) + ranX)].IsMine == true)
                 {
+                    //bombArray[ranX, ranY] = true;
                     btn[ranX, ranY].BackColor = Color.Red;
-                    bombArray[ranX, ranY] = true;
+                    int panelList = (ranY * 16) + ranX;
+                    Panel[panelList].IsMine = true;
                     bombs--;
                 }
             }
@@ -126,6 +132,25 @@ namespace Minesweeper
         }
 
         
+    }
+    public class PanelStates
+    {
+        public int ID { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public bool IsMine { get; set; }
+        public int AdjacentMines { get; set; }
+        public bool IsRevealed { get; set; }
+        public bool IsFlagged { get; set; }
+
+        public PanelStates(int id, int x, int y)
+        {
+            IsMine = false;
+            this.ID = id;
+            this.X = x;
+            this.Y = y;
+
+        }
     }
 }
             
