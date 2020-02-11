@@ -18,3 +18,12 @@ U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
 U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.exe
 U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.pdb
 U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.MainGame.resources
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.exe
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.pdb
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\bin\Debug\Minesweeper.exe.config
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\bin\Debug\Minesweeper.exe
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\bin\Debug\Minesweeper.pdb
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.MainGame.resources
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.csproj.GenerateResource.cache

@@ -41,6 +41,8 @@ namespace Minesweeper
                     Panel.Add(new PanelStates(id,x,y));
                     id++;
                     btn[x, y] = new Button();
+                    string btnName = "[" + x + "]" + "[" + y + "]";
+                    btn[x, y].Name = btnName;
                     btn[x, y].SetBounds(30 * x, (30 * y) + 30, 30, 30);
                     btn[x, y].BackColor = Color.White;
                     btn[x, y].FlatStyle = FlatStyle.Flat;
@@ -59,10 +61,10 @@ namespace Minesweeper
 
                 if (!Panel[((ranY * 16) + ranX)].IsMine == true)
                 {
-                    //bombArray[ranX, ranY] = true;
+                    bombArray[ranX, ranY] = true;
                     btn[ranX, ranY].BackColor = Color.Red;
-                    int panelList = (ranY * 16) + ranX;
-                    Panel[panelList].IsMine = true;
+                    //int panelList = (ranY * 16) + ranX;
+                    //Panel[panelList].IsMine = true;
                     bombs--;
                 }
             }
@@ -71,20 +73,24 @@ namespace Minesweeper
 
         void btnEvent_MouseDown(object sender, MouseEventArgs e)
         {
-            Control ctrl = ((Control)sender);
+            Button ctrl = ((Button)sender);
             if (e.Button == MouseButtons.Left)
             {
+                Console.WriteLine(ctrl.Name + " was clicked");
                 ctrl.BackColor = Color.Black;
+
             }
             if (e.Button == MouseButtons.Right)
             {
                 if (ctrl.BackColor == Color.Orange)
                 {
+                    Console.WriteLine(ctrl.Name + " was unflagged");
                     ctrl.BackColor = Color.White;
                     ctrl.Text = "";
                 }
                 else
                 {
+                    Console.WriteLine(ctrl.Name + " was flagged");
                     ctrl.BackColor = Color.Orange;
                     ctrl.Text = "F";
                 }
