@@ -163,12 +163,15 @@ namespace Minesweeper
                         }
                         gameStart = true;
                         btn[x, y].BackColor = Color.SaddleBrown;
+                        btn[x, y].Enabled = false;
                         digAround(x, y);
-                        boardCheck(16,16);
+                        //boardCheck(16,16);
                     }
                     else
                     {
-
+                        btn[x, y].BackColor = Color.SaddleBrown;
+                        btn[x, y].Enabled = false;
+                        digAround(x, y);
                     }
                 }
                 bombCheck(x,y);              
@@ -274,7 +277,8 @@ namespace Minesweeper
                 if (surroundingsArray[x,y]>0)
                 {
                     btn[x, y].Text = Convert.ToString(surroundingsArray[x, y]);
-                    btn[x, y].BackColor = Color.SaddleBrown; 
+                    btn[x, y].BackColor = Color.SaddleBrown;
+                    btn[x, y].Enabled = false;
                     return;
                 }
                 else
@@ -282,6 +286,7 @@ namespace Minesweeper
                     if (!(btn[x, y].BackColor == Color.SaddleBrown))
                     {
                         btn[x, y].BackColor = Color.SaddleBrown;
+                        btn[x, y].Enabled = false;
                         digLeft(x, y);
                         digRight(x, y);
                     }
@@ -297,6 +302,7 @@ namespace Minesweeper
                 {
                     btn[x, y].Text = Convert.ToString(surroundingsArray[x, y]);
                     btn[x, y].BackColor = Color.SaddleBrown;
+                    btn[x, y].Enabled = false;
                     return;
                 }
                 else
@@ -304,6 +310,7 @@ namespace Minesweeper
                     if (!(btn[x, y].BackColor == Color.SaddleBrown))
                     {
                         btn[x, y].BackColor = Color.SaddleBrown;
+                        btn[x, y].Enabled = false;
                         digLeft(x, y);
                         digRight(x, y);
                     }
@@ -320,6 +327,7 @@ namespace Minesweeper
                 {
                     btn[x, y].Text = Convert.ToString(surroundingsArray[x, y]);
                     btn[x, y].BackColor = Color.SaddleBrown;
+                    btn[x, y].Enabled = false;
                     return;
                 }
                 else
@@ -327,6 +335,7 @@ namespace Minesweeper
                     if (!(btn[x, y].BackColor == Color.SaddleBrown))
                     {
                         btn[x, y].BackColor = Color.SaddleBrown;
+                        btn[x, y].Enabled = false;
                         digUp(x, y);
                         digDown(x, y);
                     }
@@ -343,6 +352,7 @@ namespace Minesweeper
                 {
                     btn[x, y].Text = Convert.ToString(surroundingsArray[x, y]);
                     btn[x, y].BackColor = Color.SaddleBrown;
+                    btn[x, y].Enabled = false;
                     return;
                 }
                 else
@@ -350,6 +360,7 @@ namespace Minesweeper
                     if (!(btn[x, y].BackColor == Color.SaddleBrown))
                     {
                         btn[x, y].BackColor = Color.SaddleBrown;
+                        btn[x, y].Enabled = false;
                         digUp(x, y);
                         digDown(x, y);
                     }
