@@ -13,13 +13,15 @@ namespace Minesweeper
     public partial class MainGame : Form
     {
         Random r = new Random();
-        Button[,] btn = new Button[16, 16]; // Create 2D array of buttons
-        bool[,] bombArray = new bool[16, 16];
-        int[,] surroundingsArray = new int[16, 16];
+        Button[,] btn = new Button[30, 16]; // Create 2D array of buttons
+        bool[,] bombArray = new bool[30, 16];
+        int[,] surroundingsArray = new int[30, 16];
         //Label lblTurnTime = new Label();
         //int seconds = 10;
         bool gameStart;
         int bombs;
+        int flagsLeft;
+        int difficulty;
 
         private void MoveTime_Tick(object sender, EventArgs e)
         {
@@ -28,41 +30,53 @@ namespace Minesweeper
 
         }
 
-        public MainGame()
+        public MainGame(int difficulty)
         {        
 
             InitializeComponent();
             gameStart = false;
-            loadGame(1);
+            loadGame(difficulty);
         }
 
         void loadGame(int difficulty)
         {
             int height = 1000;
             int width = 1000;
+            int panelsX=15;
+            int panelsY=15;
 
             if (difficulty==0)
             {
                 bombs = 10;
+                height = 550;
+                width = 496;
+                panelsX = 9;
+                panelsY = 9;
             }
             if (difficulty==1)
             {
                 bombs = 40;
                 height = 550;
                 width = 496;
+                panelsX = 16;
+                panelsY = 16;
             }
             if (difficulty==2)
             {
                 bombs = 99;
+                panelsX = 16;
+                panelsY = 30;
             }
+
+            flagsLeft = bombs;
 
             //lblTurnTime.Location = new System.Drawing.Point(400, 7);
             //lblTurnTime.Text = "10";
             int id = 0;
             bool dark = true;
-            for (int x = 0; x < btn.GetLength(0); x++) // Loop for x
+            for (int x = 0; x < panelsX; x++) // Loop for x
             {
-                for (int y = 0; y < btn.GetLength(1); y++) // Loop for y
+                for (int y = 0; y < panelsY; y++) // Loop for y
                 {
                     id++;
                     btn[x, y] = new Button();
@@ -134,16 +148,11 @@ namespace Minesweeper
             int x = int.Parse(xy[0]);
             int y = int.Parse(xy[1]);
 
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left) // ON LEFT CLICK
             {
                 //If button is flagged dont allow click
-                if (ctrl.BackColor == Color.Orange)
+                if (!(ctrl.BackColor == Color.Orange))
                 {
-                    MessageBox.Show("Please unflag before clicking", "Flagged");
-                }
-                else
-                {                   
-
                     Console.WriteLine(ctrl.Name + " was clicked");
                     if (gameStart == false)
                     {
@@ -152,12 +161,13 @@ namespace Minesweeper
                         {
                             for (int j = 0; j < 16; j++)
                             {
-                                surroundingsArray[i,j] = checkSurroundings(i, j);
-                                //btn[i, j].Text = Convert.ToString(surroundingsArray[i, j]);
+                                surroundingsArray[i, j] = checkSurroundings(i, j);
+                                /*
                                 if (bombArray[i,j])
                                 {
                                     btn[i, j].BackColor = Color.Red;
                                 }
+                                */
                             }
                         }
                         gameStart = true;
@@ -181,25 +191,54 @@ namespace Minesweeper
                             btn[x, y].Enabled = false;
                             digAround(x, y);
                         }
-                        
+
                     }
-                }
-                bombCheck(x,y);              
+                    bombCheck(x, y);
+                }            
             }
-            if (e.Button == MouseButtons.Right && gameStart==true)
+            if (e.Button == MouseButtons.Right && gameStart==true) //ON RIGHT CLICK AND GAME HAS STARTED
             {
-                if (ctrl.BackColor == Color.Orange)
-                {
-                    Console.WriteLine(ctrl.Name + " was unflagged");
-                    ctrl.BackColor = Color.Green;
-                    ctrl.Text = "";
-                }
-                else
-                {
-                    Console.WriteLine(ctrl.Name + " was flagged");
-                    ctrl.BackColor = Color.Orange;
-                    ctrl.Text = "F";
-                }
+
+                    if (ctrl.BackColor == Color.Orange)
+                    {
+                        Console.WriteLine(ctrl.Name + " was unflagged");
+                        ctrl.BackColor = Color.Green;
+                        ctrl.Text = "";
+                        flagsLeft++;
+                    }
+                    else
+                    {
+                        if (flagsLeft == 0)
+                        {
+                            MessageBox.Show("Please remove a flag to place another", "Max Number of Flags in Play");
+                        }
+                        else
+                        {
+                            Console.WriteLine(ctrl.Name + " was flagged");
+                            ctrl.BackColor = Color.Orange;
+                            ctrl.Text = "F";
+                            flagsLeft--;
+                            int correctFlags = bombs;
+
+                            for (int i = 0; i < 16; i++)
+                            {
+                                for (int j = 0; j < 16; j++)
+                                {
+                                    if (bombArray[i,j] && btn[i,j].BackColor==Color.Orange)
+                                    {
+                                        correctFlags--;
+                                    }
+                                    if (correctFlags==0)
+                                    {
+                                        MessageBox.Show("YOU WON!!!!", "WINNER!");
+                                        gameRestart();
+                                    }
+                                }
+                            }
+                    }
+
+                    }
+                
                 
             }
             
@@ -289,6 +328,27 @@ namespace Minesweeper
                     btn[x, y].Text = Convert.ToString(surroundingsArray[x, y]);
                     btn[x, y].BackColor = Color.SaddleBrown;
                     btn[x, y].Enabled = false;
+
+                    if (x>0)
+                    {
+                        int surrounding = checkSurroundings(x - 1, y);
+                        if (surrounding > 0 && !(bombArray[x - 1, y]))
+                        {
+                            btn[x - 1, y].BackColor = Color.SaddleBrown;
+                            btn[x - 1, y].Text = Convert.ToString(surrounding);
+                            btn[x - 1, y].Enabled = false;
+                        }
+                    }
+                    if (x < 15)
+                    {
+                        int surrounding = checkSurroundings(x + 1, y);
+                        if (surrounding > 0 && !(bombArray[x + 1, y]))
+                        {
+                            btn[x + 1, y].BackColor = Color.SaddleBrown;
+                            btn[x + 1, y].Text = Convert.ToString(surrounding);
+                            btn[x + 1, y].Enabled = false;
+                        }
+                    }
                     return;
                 }
                 else
@@ -298,7 +358,7 @@ namespace Minesweeper
                         btn[x, y].BackColor = Color.SaddleBrown;
                         btn[x, y].Enabled = false;
                         digLeft(x, y);
-                        digRight(x, y);
+                        digRight(x, y);                    
                     }
                 }
             }
@@ -313,6 +373,26 @@ namespace Minesweeper
                     btn[x, y].Text = Convert.ToString(surroundingsArray[x, y]);
                     btn[x, y].BackColor = Color.SaddleBrown;
                     btn[x, y].Enabled = false;
+                    if (x > 0)
+                    {
+                        int surrounding = checkSurroundings(x - 1, y);
+                        if (surrounding > 0 && !(bombArray[x - 1, y]))
+                        {
+                            btn[x - 1, y].BackColor = Color.SaddleBrown;
+                            btn[x - 1, y].Text = Convert.ToString(surrounding);
+                            btn[x - 1, y].Enabled = false;
+                        }
+                    }
+                    if (x < 15)
+                    {
+                        int surrounding = checkSurroundings(x + 1, y);
+                        if (surrounding > 0 && !(bombArray[x + 1, y]))
+                        {
+                            btn[x + 1, y].BackColor = Color.SaddleBrown;
+                            btn[x + 1, y].Text = Convert.ToString(surrounding);
+                            btn[x + 1, y].Enabled = false;
+                        }
+                    }
                     return;
                 }
                 else
@@ -479,7 +559,7 @@ namespace Minesweeper
         private void gameRestart()
         {
             this.Hide();
-            MainGame mainGame = new MainGame();
+            MainGame mainGame = new MainGame(difficulty);
             mainGame.ShowDialog();
             this.Close();
         }
@@ -494,7 +574,10 @@ namespace Minesweeper
 
         private void EasyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadGame(0);
+            this.Hide();
+            MainGame mainGame = new MainGame(0);
+            mainGame.ShowDialog();
+            this.Close();
         }
 
         /*
