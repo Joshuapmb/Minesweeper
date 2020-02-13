@@ -64,7 +64,6 @@ namespace Minesweeper
             {
                 for (int y = 0; y < btn.GetLength(1); y++) // Loop for y
                 {
-                    //Panel.Add(new PanelStates(id,x,y));
                     id++;
                     btn[x, y] = new Button();
                     string btnName = x + "," + y;
@@ -169,9 +168,20 @@ namespace Minesweeper
                     }
                     else
                     {
-                        btn[x, y].BackColor = Color.SaddleBrown;
-                        btn[x, y].Enabled = false;
-                        digAround(x, y);
+                        int surrounding = checkSurroundings(x, y);
+                        if (surrounding > 0)
+                        {
+                            btn[x, y].BackColor = Color.SaddleBrown;
+                            btn[x, y].Text = Convert.ToString(surrounding);
+                            btn[x, y].Enabled = false;
+                        }
+                        else
+                        {
+                            btn[x, y].BackColor = Color.SaddleBrown;
+                            btn[x, y].Enabled = false;
+                            digAround(x, y);
+                        }
+                        
                     }
                 }
                 bombCheck(x,y);              
@@ -482,13 +492,18 @@ namespace Minesweeper
             }
         }
 
+        private void EasyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadGame(0);
+        }
+
         /*
         private void Timer1_Tick(object sender, EventArgs e)
         {
 
         }
         */
-    
+
     }
 }
             
