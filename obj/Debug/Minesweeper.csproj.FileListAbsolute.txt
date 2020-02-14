@@ -27,3 +27,4 @@ C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.MainGame.r
 C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.Properties.Resources.resources
 C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.csproj.GenerateResource.cache
 C:\Users\joshuabradley\Documents\2b labs\minesweeper\obj\Debug\Minesweeper.MainGame.resources
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.Help.resources

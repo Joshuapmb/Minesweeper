@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainGame.resx">
       <DependentUpon>MainGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,6 +89,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kidscheer.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explosion+3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07074110.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07073021.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07070114.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07043399.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07043286.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slap-SoundMaster13-49669815.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kidcheer.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spanacul-camp-minat %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dugSquare.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flagEx.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
