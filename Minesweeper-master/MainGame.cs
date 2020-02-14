@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Minesweeper
 {
@@ -144,6 +146,8 @@ namespace Minesweeper
         void btnEvent_MouseDown(object sender, MouseEventArgs e)    // Function that decides what happens when a button is clicked
         {
             Button ctrl = ((Button)sender); // Create an instance of the button clicked
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
             //Extract X and Y coordinates from name
             String[] xy = ctrl.Name.Split(',');
@@ -231,6 +235,15 @@ namespace Minesweeper
                                     }
                                     if (correctFlags==0)    // Checks if the correctFlags counter has reached 0
                                     {
+                                        stopWatch.Stop();
+                                        // Get the elapsed time as a TimeSpan value.
+                                        TimeSpan ts = stopWatch.Elapsed;
+
+                                        // Format and display the TimeSpan value.
+                                        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                                            ts.Hours, ts.Minutes, ts.Seconds,
+                                            ts.Milliseconds / 10);
+                                        Console.WriteLine("RunTime " + elapsedTime);
                                         MessageBox.Show("YOU WON!!!!", "WINNER!");  // Displays a message
                                         gameRestart();  // Restarts the game
                                     }
