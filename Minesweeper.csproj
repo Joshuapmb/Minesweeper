@@ -66,6 +66,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,6 +80,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explosion+3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slap-SoundMaster13-49669815.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07070114.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07043286.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07073021.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07043071.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07043399.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07074110.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

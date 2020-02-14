@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Minesweeper
 {
@@ -47,6 +49,8 @@ namespace Minesweeper
 
             if (difficulty==0)
             {
+                SoundPlayer chicken = new SoundPlayer(Properties.Resources.chicken);
+                chicken.Play();
                 bombs = 10;
                 height = 339;
                 width = 286;
@@ -55,6 +59,8 @@ namespace Minesweeper
             }
             if (difficulty==1)
             {
+                SoundPlayer cheers = new SoundPlayer(Properties.Resources.kidscheer);
+                cheers.Play();
                 bombs = 40;
                 height = 550;
                 width = 496;
@@ -63,6 +69,8 @@ namespace Minesweeper
             }
             if (difficulty==2)
             {
+                SoundPlayer lightning = new SoundPlayer(Properties.Resources.lightning);
+                lightning.Play();
                 bombs = 99;
                 height = 550;
                 width = 1000;
@@ -157,6 +165,8 @@ namespace Minesweeper
                 if (!(ctrl.BackColor == Color.Orange))
                 {
                     Console.WriteLine(ctrl.Name + " was clicked");
+                    SoundPlayer diggy = new SoundPlayer(Properties.Resources.dig);
+                    diggy.Play();
                     if (gameStart == false)
                     {
                         generateBombs(panelsX, panelsY, bombs, x, y);
@@ -203,7 +213,9 @@ namespace Minesweeper
                     if (ctrl.BackColor == Color.Orange)
                     {
                         Console.WriteLine(ctrl.Name + " was unflagged");
-                        ctrl.BackColor = Color.Green;
+                        SoundPlayer unflagslap = new SoundPlayer(Properties.Resources.unflag);
+                        unflagslap.Play();
+                    ctrl.BackColor = Color.Green;
                         ctrl.Text = "";
                         flagsLeft++;
                     }
@@ -216,7 +228,9 @@ namespace Minesweeper
                         else
                         {
                             Console.WriteLine(ctrl.Name + " was flagged");
-                            ctrl.BackColor = Color.Orange;
+                            SoundPlayer flagslap = new SoundPlayer(Properties.Resources.flag);
+                            flagslap.Play();
+                        ctrl.BackColor = Color.Orange;
                             ctrl.Text = "F";
                             flagsLeft--;
                             int correctFlags = bombs;
@@ -232,7 +246,10 @@ namespace Minesweeper
                                     if (correctFlags==0)
                                     {
                                         MessageBox.Show("YOU WON!!!!", "WINNER!");
-                                        gameRestart();
+                                        SoundPlayer winner = new SoundPlayer(Properties.Resources.win);
+                                        winner.Play();
+
+                                    gameRestart();
                                     }
                                 }
                             }
@@ -513,6 +530,8 @@ namespace Minesweeper
                     }
                 }
                 MessageBox.Show("GAME OVER!", "Game Over");
+                SoundPlayer explody = new SoundPlayer(Properties.Resources.Explosion_3);
+                explody.Play();
                 gameRestart();
             }
         }
