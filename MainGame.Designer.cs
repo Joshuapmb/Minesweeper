@@ -40,6 +40,7 @@
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.moveTime = new System.Windows.Forms.Timer(this.components);
+            this.concedeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,8 +53,9 @@
             this.restartToolStripMenuItem,
             this.highscoresToolStripMenuItem,
             this.exitToolStripMenuItem1});
+            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.fileToolStripMenuItem.Text = "Options";
             // 
             // helpToolStripMenuItem
@@ -119,7 +121,8 @@
             // 
             this.menuStrip2.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.concedeToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(0);
@@ -131,12 +134,22 @@
             // 
             this.moveTime.Tick += new System.EventHandler(this.MoveTime_Tick);
             // 
+            // concedeToolStripMenuItem
+            // 
+            this.concedeToolStripMenuItem.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.concedeToolStripMenuItem.Name = "concedeToolStripMenuItem";
+            this.concedeToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.concedeToolStripMenuItem.Text = "Concede";
+            this.concedeToolStripMenuItem.Visible = false;
+            this.concedeToolStripMenuItem.Click += new System.EventHandler(this.ConcedeToolStripMenuItem_Click);
+            // 
             // MainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 495);
             this.Controls.Add(this.menuStrip2);
+            this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainGame";
@@ -162,6 +175,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.Timer moveTime;
+        private System.Windows.Forms.ToolStripMenuItem concedeToolStripMenuItem;
     }
 }
 

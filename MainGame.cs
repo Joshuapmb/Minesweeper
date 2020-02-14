@@ -21,7 +21,6 @@ namespace Minesweeper
         bool gameStart;
         int bombs;
         int flagsLeft;
-        int difficulty;
         int panelsX;
         int panelsY;
 
@@ -33,8 +32,7 @@ namespace Minesweeper
         }
 
         public MainGame(int difficulty)
-        {        
-
+        {
             InitializeComponent();
             gameStart = false;
             loadGame(difficulty);
@@ -56,7 +54,7 @@ namespace Minesweeper
             if (difficulty==1)
             {
                 bombs = 40;
-                height = 550;
+                height = 549;
                 width = 496;
                 panelsX = 16;
                 panelsY = 16;
@@ -64,8 +62,8 @@ namespace Minesweeper
             if (difficulty==2)
             {
                 bombs = 99;
-                height = 550;
-                width = 1000;
+                height = 549;
+                width = 916;
                 panelsX = 30;
                 panelsY = 16;
             }
@@ -84,6 +82,7 @@ namespace Minesweeper
                     btn[x, y] = new Button();
                     string btnName = x + "," + y;
                     btn[x, y].Name = btnName;
+                    btn[x, y].Font = new Font("Consolas", 9F, FontStyle.Bold);
                     btn[x, y].SetBounds(30 * x, (30 * y) + 30, 30, 30);
                     if (dark == false)
                     {
@@ -151,12 +150,12 @@ namespace Minesweeper
             int y = int.Parse(xy[1]);
 
             if (e.Button == MouseButtons.Left) // ON LEFT CLICK
-            {
-                bombCheck(x, y);
+            {                
                 //If button is flagged dont allow click
                 if (!(ctrl.BackColor == Color.Orange))
                 {
                     Console.WriteLine(ctrl.Name + " was clicked");
+                    bombCheck(x, y);
                     if (gameStart == false)
                     {
                         generateBombs(panelsX, panelsY, bombs, x, y);
@@ -174,6 +173,7 @@ namespace Minesweeper
                             }
                         }
                         gameStart = true;
+                        concedeToolStripMenuItem.Visible = true;
                         btn[x, y].BackColor = Color.SaddleBrown;
                         btn[x, y].Enabled = false;
                         digAround(x, y);
@@ -195,7 +195,7 @@ namespace Minesweeper
                         }
 
                     }                    
-                }            
+                }               
             }
             if (e.Button == MouseButtons.Right && gameStart==true) //ON RIGHT CLICK AND GAME HAS STARTED
             {
@@ -232,7 +232,7 @@ namespace Minesweeper
                                     if (correctFlags==0)
                                     {
                                         MessageBox.Show("YOU WON!!!!", "WINNER!");
-                                        gameRestart();
+                                        gameRestart(1);
                                     }
                                 }
                             }
@@ -273,6 +273,10 @@ namespace Minesweeper
                             btn[x - 1, y].Text = Convert.ToString(surrounding);
                             btn[x - 1, y].Enabled = false;
                         }
+                        else
+                        {
+                            digLeft(x, y);
+                        }
                     }
                     if (x < (panelsX-1))
                     {
@@ -282,6 +286,10 @@ namespace Minesweeper
                             btn[x + 1, y].BackColor = Color.SaddleBrown;
                             btn[x + 1, y].Text = Convert.ToString(surrounding);
                             btn[x + 1, y].Enabled = false;
+                        }
+                        else
+                        {
+                            digRight(x, y);
                         }
                     }
                     return;
@@ -317,6 +325,10 @@ namespace Minesweeper
                             btn[x - 1, y].Text = Convert.ToString(surrounding);
                             btn[x - 1, y].Enabled = false;
                         }
+                        else
+                        {
+                            digLeft(x, y);
+                        }
                     }
                     if (x < (panelsX-1))
                     {
@@ -326,6 +338,10 @@ namespace Minesweeper
                             btn[x + 1, y].BackColor = Color.SaddleBrown;
                             btn[x + 1, y].Text = Convert.ToString(surrounding);
                             btn[x + 1, y].Enabled = false;
+                        }
+                        else
+                        {
+                            digRight(x, y);
                         }
                     }
                     return;
@@ -489,9 +505,9 @@ namespace Minesweeper
 
         private void ResartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gameRestart();
+            gameRestart(1);
         }
-        private void gameRestart()
+        private void gameRestart(int difficulty)
         {
             this.Hide();
             MainGame mainGame = new MainGame(difficulty);
@@ -513,7 +529,7 @@ namespace Minesweeper
                     }
                 }
                 MessageBox.Show("GAME OVER!", "Game Over");
-                gameRestart();
+                gameRestart(1);
             }
         }
 
@@ -539,6 +555,33 @@ namespace Minesweeper
             MainGame mainGame = new MainGame(2);
             mainGame.ShowDialog();
             this.Close();
+        }
+
+        private void ConcedeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (concedeToolStripMenuItem.Text == "Restart")
+            {
+                gameRestart(1);
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to give up?", "Concede?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    concedeToolStripMenuItem.Text = "Restart";
+                    for (int i = 0; i < panelsX; i++)
+                    {
+                        for (int j = 0; j < panelsY; j++)
+                        {
+                            btn[i, j].Enabled = false;
+                            if (bombArray[i, j])
+                            {
+                                btn[i, j].BackColor = Color.Red;
+                            }
+                        }
+                    }
+                }
+            }          
         }
     }
 }
