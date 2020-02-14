@@ -1,0 +1,29 @@
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\bin\Debug\Minesweeper.exe.config
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\bin\Debug\Minesweeper.exe
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\bin\Debug\Minesweeper.pdb
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.cache
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.exe
+C:\Users\joshuabradley\Documents\2b labs\Minesweeper\obj\Debug\Minesweeper.pdb
+U:\YEAR2\AC22005\Project1\bin\Debug\Minesweeper.exe.config
+U:\YEAR2\AC22005\Project1\bin\Debug\Minesweeper.exe
+U:\YEAR2\AC22005\Project1\bin\Debug\Minesweeper.pdb
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.Properties.Resources.resources
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csproj.GenerateResource.cache
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.csproj.CoreCompileInputs.cache
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.exe
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.pdb
+U:\YEAR2\AC22005\Project1\obj\Debug\Minesweeper.MainGame.resources
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.exe
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.pdb
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\bin\Debug\Minesweeper.exe.config
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\bin\Debug\Minesweeper.exe
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\bin\Debug\Minesweeper.pdb
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.csprojAssemblyReference.cache
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.MainGame.resources
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\Users\James\Desktop\Beeps\Uni Work\2nd\sweep\obj\Debug\Minesweeper.csproj.GenerateResource.cache
+C:\Users\joshuabradley\Documents\2b labs\minesweeper\obj\Debug\Minesweeper.MainGame.resources
