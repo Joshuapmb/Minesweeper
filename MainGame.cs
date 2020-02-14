@@ -22,6 +22,8 @@ namespace Minesweeper
         int bombs;
         int flagsLeft;
         int difficulty;
+        int panelsX;
+        int panelsY;
 
         private void MoveTime_Tick(object sender, EventArgs e)
         {
@@ -42,14 +44,12 @@ namespace Minesweeper
         {
             int height = 1000;
             int width = 1000;
-            int panelsX=15;
-            int panelsY=15;
 
             if (difficulty==0)
             {
                 bombs = 10;
-                height = 550;
-                width = 496;
+                height = 339;
+                width = 286;
                 panelsX = 9;
                 panelsY = 9;
             }
@@ -64,8 +64,10 @@ namespace Minesweeper
             if (difficulty==2)
             {
                 bombs = 99;
-                panelsX = 16;
-                panelsY = 30;
+                height = 550;
+                width = 1000;
+                panelsX = 30;
+                panelsY = 16;
             }
 
             flagsLeft = bombs;
@@ -150,16 +152,17 @@ namespace Minesweeper
 
             if (e.Button == MouseButtons.Left) // ON LEFT CLICK
             {
+                bombCheck(x, y);
                 //If button is flagged dont allow click
                 if (!(ctrl.BackColor == Color.Orange))
                 {
                     Console.WriteLine(ctrl.Name + " was clicked");
                     if (gameStart == false)
                     {
-                        generateBombs(16, 16, bombs, x, y);
-                        for (int i = 0; i < 16; i++)
+                        generateBombs(panelsX, panelsY, bombs, x, y);
+                        for (int i = 0; i < panelsX; i++)
                         {
-                            for (int j = 0; j < 16; j++)
+                            for (int j = 0; j < panelsY; j++)
                             {
                                 surroundingsArray[i, j] = checkSurroundings(i, j);
                                 /*
@@ -174,7 +177,6 @@ namespace Minesweeper
                         btn[x, y].BackColor = Color.SaddleBrown;
                         btn[x, y].Enabled = false;
                         digAround(x, y);
-                        //boardCheck(16,16);
                     }
                     else
                     {
@@ -192,8 +194,7 @@ namespace Minesweeper
                             digAround(x, y);
                         }
 
-                    }
-                    bombCheck(x, y);
+                    }                    
                 }            
             }
             if (e.Button == MouseButtons.Right && gameStart==true) //ON RIGHT CLICK AND GAME HAS STARTED
@@ -220,9 +221,9 @@ namespace Minesweeper
                             flagsLeft--;
                             int correctFlags = bombs;
 
-                            for (int i = 0; i < 16; i++)
+                            for (int i = 0; i < panelsX; i++)
                             {
-                                for (int j = 0; j < 16; j++)
+                                for (int j = 0; j < panelsY; j++)
                                 {
                                     if (bombArray[i,j] && btn[i,j].BackColor==Color.Orange)
                                     {
@@ -243,72 +244,6 @@ namespace Minesweeper
             }
             
             //Console.WriteLine(((Button)sender).Text); // SAME handler as before
-        }
-        void boardCheck(int boardX, int boardY)
-        {
-            for (int i = 1; i<(boardX-1);i++)
-            {
-                for (int j = 1; j < (boardY-1); j++)
-                {
-                    int connections = 0;
-                    if (!(btn[i,j].Text == ""))
-                    {
-                        if (!(btn[i - 1, j].Text == ""))
-                        {
-                            connections++;
-                        }
-                        if (!(btn[i, j - 1].Text == ""))
-                        {
-                            connections++;
-                        }
-                        if (!(btn[i + 1, j].Text == ""))
-                        {
-                            connections++;
-                        }
-                        if (!(btn[i, j + 1].Text == ""))
-                        {
-                            connections++;
-                        }
-
-                    }
-
-                    if (connections<2)
-                    {
-                        if (!(btn[i + 1, j].Text == ""))
-                        {
-                            int Surrounding = checkSurroundings(i + 1, j);
-                            if (Surrounding > 0)
-                            {
-                                btn[i + 1, j].Text = Convert.ToString(Surrounding);
-                            }
-                        }
-                        if (!(btn[i - 1, j].Text == ""))
-                        {
-                            int Surrounding = checkSurroundings(i - 1, j);
-                            if (Surrounding > 0)
-                            {
-                                btn[i - 1, j].Text = Convert.ToString(Surrounding);
-                            }
-                        }
-                        if (!(btn[i, j + 1].Text == ""))
-                        {
-                            int Surrounding = checkSurroundings(i, j + 1);
-                            if (Surrounding > 0)
-                            {
-                                btn[i, j + 1].Text = Convert.ToString(Surrounding);
-                            }
-                        }
-                        if (!(btn[i, j - 1].Text == ""))
-                        {
-                            int Surrounding = checkSurroundings(i, j - 1);
-                            if (Surrounding > 0)
-                            {
-                                btn[i, j - 1].Text = Convert.ToString(Surrounding);
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         void digAround(int x, int y)
@@ -339,7 +274,7 @@ namespace Minesweeper
                             btn[x - 1, y].Enabled = false;
                         }
                     }
-                    if (x < 15)
+                    if (x < (panelsX-1))
                     {
                         int surrounding = checkSurroundings(x + 1, y);
                         if (surrounding > 0 && !(bombArray[x + 1, y]))
@@ -365,7 +300,7 @@ namespace Minesweeper
         }
         void digDown(int x, int y)
         {
-            while (y < 15)
+            while (y < (panelsY-1))
             {
                 y++;
                 if (surroundingsArray[x, y] > 0)
@@ -383,7 +318,7 @@ namespace Minesweeper
                             btn[x - 1, y].Enabled = false;
                         }
                     }
-                    if (x < 15)
+                    if (x < (panelsX-1))
                     {
                         int surrounding = checkSurroundings(x + 1, y);
                         if (surrounding > 0 && !(bombArray[x + 1, y]))
@@ -410,7 +345,7 @@ namespace Minesweeper
 
         void digRight(int x, int y)
         {
-            while (x < 15)
+            while (x < (panelsX-1))
             {
                 x++;
                 if (surroundingsArray[x, y] > 0)
@@ -463,7 +398,7 @@ namespace Minesweeper
         {
             int surroundingBombCount = 0;
 
-            if ((x > 0) && (y < 15))
+            if ((x > 0) && (y < (panelsY-1)))
             {
                 //if there's a bomb bottom left
                 if (bombArray[x-1,y+1])
@@ -471,7 +406,7 @@ namespace Minesweeper
                     surroundingBombCount++;
                 }
             }
-            if (y < 15)
+            if (y < (panelsY - 1))
             {
                 //if there's a bomb below
                 if (bombArray[x, y + 1])
@@ -479,7 +414,7 @@ namespace Minesweeper
                     surroundingBombCount++;
                 }
             }
-            if (x < 15 && y < 15)
+            if (x < (panelsX - 1) && y < (panelsY - 1))
             {
                 //if there's a bomb bottom right
                 if (bombArray[x + 1,y + 1])
@@ -495,7 +430,7 @@ namespace Minesweeper
                     surroundingBombCount++;
                 }
             }
-            if (x < 15)
+            if (x < (panelsX - 1))
             {
                 //if there's a bomb right
                 if (bombArray[x + 1, y])
@@ -519,7 +454,7 @@ namespace Minesweeper
                     surroundingBombCount++;
                 }
             }
-            if (x < 15 && y > 0)
+            if (x < (panelsX - 1) && y > 0)
             {
                 //if there's a bomb top right
                 if (bombArray[x + 1, y - 1])
@@ -567,6 +502,16 @@ namespace Minesweeper
         {
             if (bombArray[x,y])
             {
+                for (int i = 0 ; i < panelsX; i++)
+                {
+                    for (int j = 0; j < panelsY; j++)
+                    {
+                        if (bombArray[i, j])
+                        {
+                            btn[i, j].BackColor = Color.Red;
+                        }
+                    }
+                }
                 MessageBox.Show("GAME OVER!", "Game Over");
                 gameRestart();
             }
@@ -580,13 +525,21 @@ namespace Minesweeper
             this.Close();
         }
 
-        /*
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void MediumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MainGame mainGame = new MainGame(1);
+            mainGame.ShowDialog();
+            this.Close();
         }
-        */
 
+        private void HardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainGame mainGame = new MainGame(2);
+            mainGame.ShowDialog();
+            this.Close();
+        }
     }
 }
             

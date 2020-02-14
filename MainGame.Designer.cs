@@ -59,7 +59,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
             // 
@@ -70,46 +70,48 @@
             this.mediumToolStripMenuItem,
             this.hardToolStripMenuItem});
             this.difficultyOptionsToolStripMenuItem.Name = "difficultyOptionsToolStripMenuItem";
-            this.difficultyOptionsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.difficultyOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.difficultyOptionsToolStripMenuItem.Text = "Difficulty Options";
             // 
             // easyToolStripMenuItem
             // 
             this.easyToolStripMenuItem.Name = "easyToolStripMenuItem";
-            this.easyToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.easyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.easyToolStripMenuItem.Text = "Easy";
             this.easyToolStripMenuItem.Click += new System.EventHandler(this.EasyToolStripMenuItem_Click);
             // 
             // mediumToolStripMenuItem
             // 
             this.mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
-            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mediumToolStripMenuItem.Text = "Medium";
+            this.mediumToolStripMenuItem.Click += new System.EventHandler(this.MediumToolStripMenuItem_Click);
             // 
             // hardToolStripMenuItem
             // 
             this.hardToolStripMenuItem.Name = "hardToolStripMenuItem";
-            this.hardToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.hardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hardToolStripMenuItem.Text = "Hard";
+            this.hardToolStripMenuItem.Click += new System.EventHandler(this.HardToolStripMenuItem_Click);
             // 
             // restartToolStripMenuItem
             // 
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.restartToolStripMenuItem.Text = "Restart";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.ResartToolStripMenuItem_Click);
             // 
             // highscoresToolStripMenuItem
             // 
             this.highscoresToolStripMenuItem.Name = "highscoresToolStripMenuItem";
-            this.highscoresToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.highscoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.highscoresToolStripMenuItem.Text = "High Scores";
             this.highscoresToolStripMenuItem.Click += new System.EventHandler(this.HighscoresToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItem1_Click);
             // 
